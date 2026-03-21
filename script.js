@@ -8,14 +8,44 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---- NAVBAR SCROLL ---- */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- MENU HAMBÚRGUER ---- */
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('nav-mobile');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = navMobile.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    navMobile.setAttribute('aria-hidden', !isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Fecha o menu ao clicar em qualquer link dentro dele
+  navMobile.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMobile.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      navMobile.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Fecha o menu ao redimensionar para desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 900) {
+      navMobile.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      navMobile.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
     }
   });
 
-  /* ---- SMOOTH SCROLL PARA LINKS INTERNOS ---- */
+  /* ---- SMOOTH SCROLL ---- */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const target = document.querySelector(link.getAttribute('href'));
@@ -44,11 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- CONTADOR ANIMADO ---- */
   function animateCounter(el, target, duration = 1400) {
-    let start = 0;
+    let start = null;
     const step = (timestamp) => {
       if (!start) start = timestamp;
       const progress = Math.min((timestamp - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
       el.textContent = Math.floor(eased * target);
       if (progress < 1) requestAnimationFrame(step);
       else el.textContent = target;
@@ -61,10 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.dataset.count, 10);
-          animateCounter(el, target);
-          counterObserver.unobserve(el);
+          animateCounter(entry.target, parseInt(entry.target.dataset.count, 10));
+          counterObserver.unobserve(entry.target);
         }
       });
     },
@@ -89,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Simulação de envio
       const btn = form.querySelector('.form-btn');
       btn.textContent = 'Enviando...';
       btn.disabled = true;
@@ -116,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- ACTIVE NAV LINK ON SCROLL ---- */
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const desktopLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
   window.addEventListener('scroll', () => {
     let current = '';
@@ -125,11 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
         current = sec.getAttribute('id');
       }
     });
-    navLinks.forEach(link => {
+    desktopLinks.forEach(link => {
       link.style.color = link.getAttribute('href') === `#${current}`
         ? 'var(--amarelo)'
         : '';
     });
-  });
+  }, { passive: true });
 
 });

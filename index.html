@@ -25,13 +25,31 @@
           <span class="tagline">Vidal Miguez</span>
         </div>
       </a>
+
+      <!-- Desktop links -->
       <ul class="nav-links">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#ensino">Ensino</a></li>
         <li><a href="#estrutura">Estrutura</a></li>
         <li><a href="#contato" class="cta-link">Matrículas</a></li>
       </ul>
+
+      <!-- Hambúrguer (mobile) -->
+      <button class="nav-hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+
+    <!-- Menu mobile dropdown -->
+    <nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <a href="#sobre">Sobre</a>
+      <a href="#ensino">Ensino</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato" class="cta-mobile">Fazer matrícula</a>
+    </nav>
   </nav>
 
   <!-- HERO -->
@@ -120,16 +138,14 @@
               <span class="icon">📚</span>
               <div>
                 <div class="pillar-title">Excelência acadêmica</div>
-                <div class="pillar-desc">Conteúdo alinhado à BNCC com metodologias ativas e professores qualificados.
-                </div>
+                <div class="pillar-desc">Conteúdo alinhado à BNCC com metodologias ativas e professores qualificados.</div>
               </div>
             </div>
             <div class="pillar">
               <span class="icon">🤝</span>
               <div>
                 <div class="pillar-title">Parceria com a família</div>
-                <div class="pillar-desc">Comunicação aberta. Pais e escola caminhando juntos pelo desenvolvimento do
-                  aluno.</div>
+                <div class="pillar-desc">Comunicação aberta. Pais e escola caminhando juntos pelo desenvolvimento do aluno.</div>
               </div>
             </div>
             <div class="pillar">
@@ -150,10 +166,8 @@
   <section class="ensino" id="ensino">
     <div class="container">
       <div class="ensino-header reveal">
-        <span class="section-tag" style="color: var(--amarelo); border-color: var(--amarelo)">Modalidades de
-          ensino</span>
-        <h2 class="section-title" style="color: var(--branco)">Do início ao fim do <em
-            style="color: var(--amarelo-cl)">fundamental</em></h2>
+        <span class="section-tag" style="color: var(--amarelo); border-color: var(--amarelo)">Modalidades de ensino</span>
+        <h2 class="section-title" style="color: var(--branco)">Do início ao fim do <em style="color: var(--amarelo-cl)">fundamental</em></h2>
       </div>
 
       <div class="ensino-grid">
@@ -215,38 +229,14 @@
           </p>
 
           <div class="feat-grid">
-            <div class="feat-item">
-              <div class="fi">🏛️</div>
-              <div class="fl">Salas de aula amplas</div>
-            </div>
-            <div class="feat-item">
-              <div class="fi">📚</div>
-              <div class="fl">Biblioteca</div>
-            </div>
-            <div class="feat-item">
-              <div class="fi">🏀</div>
-              <div class="fl">Quadra esportiva</div>
-            </div>
-            <div class="feat-item">
-              <div class="fi">💻</div>
-              <div class="fl">Lab. de Informática</div>
-            </div>
-            <div class="feat-item">
-              <div class="fi">🎨</div>
-              <div class="fl">Sala de Artes</div>
-            </div>
-            <div class="feat-item">
-              <div class="fi">🍽️</div>
-              <div class="fl">Refeitório</div>
-            </div>
-            <div class="feat-item">
-              <div class="fi">🛡️</div>
-              <div class="fl">Segurança 24h</div>
-            </div>
-            <div class="feat-item">
-              <div class="fi">♿</div>
-              <div class="fl">Acessibilidade</div>
-            </div>
+            <div class="feat-item"><div class="fi">🏛️</div><div class="fl">Salas de aula amplas</div></div>
+            <div class="feat-item"><div class="fi">📚</div><div class="fl">Biblioteca</div></div>
+            <div class="feat-item"><div class="fi">🏀</div><div class="fl">Quadra esportiva</div></div>
+            <div class="feat-item"><div class="fi">💻</div><div class="fl">Lab. de Informática</div></div>
+            <div class="feat-item"><div class="fi">🎨</div><div class="fl">Sala de Artes</div></div>
+            <div class="feat-item"><div class="fi">🍽️</div><div class="fl">Refeitório</div></div>
+            <div class="feat-item"><div class="fi">🛡️</div><div class="fl">Segurança 24h</div></div>
+            <div class="feat-item"><div class="fi">♿</div><div class="fl">Acessibilidade</div></div>
           </div>
         </div>
 
@@ -257,32 +247,28 @@
             <div class="dif-num">01</div>
             <div>
               <div class="dif-title">Professores dedicados</div>
-              <div class="dif-desc">Nossa equipe acompanha cada aluno de perto, identificando dificuldades e celebrando
-                avanços ao longo do ano.</div>
+              <div class="dif-desc">Nossa equipe acompanha cada aluno de perto, identificando dificuldades e celebrando avanços ao longo do ano.</div>
             </div>
           </div>
           <div class="dif-item">
             <div class="dif-num">02</div>
             <div>
               <div class="dif-title">Ambiente familiar</div>
-              <div class="dif-desc">Somos uma escola de bairro onde todo mundo se conhece. Seu filho não é um número: é
-                parte da nossa comunidade.</div>
+              <div class="dif-desc">Somos uma escola de bairro onde todo mundo se conhece. Seu filho não é um número: é parte da nossa comunidade.</div>
             </div>
           </div>
           <div class="dif-item">
             <div class="dif-num">03</div>
             <div>
               <div class="dif-title">Histórico de resultados</div>
-              <div class="dif-desc">Mais de 27 anos formando alunos preparados para as próximas etapas da vida acadêmica
-                e pessoal.</div>
+              <div class="dif-desc">Mais de 27 anos formando alunos preparados para as próximas etapas da vida acadêmica e pessoal.</div>
             </div>
           </div>
           <div class="dif-item">
             <div class="dif-num">04</div>
             <div>
               <div class="dif-title">Localização conveniente</div>
-              <div class="dif-desc">No coração de Vila Inhomirim, acessível para as famílias de toda a região de Magé.
-              </div>
+              <div class="dif-desc">No coração de Vila Inhomirim, acessível para as famílias de toda a região de Magé.</div>
             </div>
           </div>
         </div>
@@ -348,8 +334,7 @@
       <div class="contato-inner">
 
         <div class="contato-left reveal">
-          <span class="section-tag" style="color: var(--amarelo); border-color: var(--amarelo)">Matrículas
-            abertas</span>
+          <span class="section-tag" style="color: var(--amarelo); border-color: var(--amarelo)">Matrículas abertas</span>
           <h2 class="section-title">
             Garanta a vaga<br>
             <em style="color: var(--amarelo-cl)">do seu filho</em>
@@ -424,7 +409,7 @@
         <img src="assets/CEVIM.png" alt="Logo CEVIM" class="footer-logo-img">
         <div>
           <div class="footer-name">Centro Educacional Vidal Miguez</div>
-          <div class="footer-sub">Fundado em 1998 &bull; Vila Inhomirim, Magé, RJ</div>
+          <div class="footer-sub">Fundado em 1998 &bull; Fragoso, Magé, RJ</div>
         </div>
       </div>
       <div class="footer-copy">
@@ -433,7 +418,7 @@
     </div>
   </footer>
 
-  <!-- TOAST NOTIFICATION -->
+  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
   <script src="script.js"></script>
